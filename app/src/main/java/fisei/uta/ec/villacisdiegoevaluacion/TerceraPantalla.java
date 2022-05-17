@@ -28,13 +28,17 @@ public class TerceraPantalla extends AppCompatActivity {
         editNumeroT = (EditText) findViewById(R.id.editTextTextNumeroT);
 
 
+        String nombre = getIntent().getStringExtra("nombre");
+        editNombreT.setText(nombre);
+
+        String base = getIntent().getStringExtra("base");
+        editBaseT.setText(base);
     }
 
 
 
 
     public void onClickCerrarT(View view){
-
 
         Intent intent = new Intent(this, SegundaPantalla.class );
 

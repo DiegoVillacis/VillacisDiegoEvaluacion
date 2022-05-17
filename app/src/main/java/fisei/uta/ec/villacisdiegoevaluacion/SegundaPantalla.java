@@ -46,9 +46,9 @@ public class SegundaPantalla extends AppCompatActivity {
 
         intent.putExtra("variablenombre", nombre);
         intent.putExtra("variableapellido", apellido);
-        intent.putExtra("variablebase",base);
-        intent.putExtra("variableexponente",exponente);
-        intent.putExtra("variablenumero",numero);
+        intent.putExtra("variablebase", base);
+        intent.putExtra("variableexponente", exponente);
+        intent.putExtra("variablenumero", numero);
 
 
         startActivity(intent);
