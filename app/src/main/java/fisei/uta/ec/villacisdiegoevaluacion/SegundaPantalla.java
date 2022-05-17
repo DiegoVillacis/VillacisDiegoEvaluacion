@@ -24,7 +24,7 @@ public class SegundaPantalla extends AppCompatActivity {
         String obtenerNombre = getIntent().getStringExtra("variablenombre");
         editNombreS.setText(obtenerNombre);
 
-        String obtenerBase = getIntent().getStringExtra("variablebase");
+        String obtenerBase = getIntent().getStringExtra("variableapellido");
         editBaseS.setText(obtenerBase);
     }
 
