@@ -18,8 +18,8 @@ public class SegundaPantalla extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_segunda_pantalla);
 
-        editNombreS = findViewById(R.id.editTextTextIngresoNombre);
-        editBaseS = findViewById(R.id.editTextTextIngresoNombre);
+        editNombreS = (EditText) findViewById(R.id.editTextTextIngresoNombre);
+        editBaseS = (EditText) findViewById(R.id.editTextIngreseBase);
 
         String obtenerNombre = getIntent().getStringExtra("variablenombre");
         editNombreS.setText(obtenerNombre);
@@ -30,26 +30,26 @@ public class SegundaPantalla extends AppCompatActivity {
 
     public void onClickSiguienteS(View view){
         Intent intent = new Intent(this, TerceraPantalla.class );
-        String mandarNombre = editNombreS.getText().toString();
-        String mandarBase = editBaseS.getText().toString();
-
-        intent.putExtra("variablenombre", mandarNombre);
-        intent.putExtra("variablebase",mandarBase);
         startActivity(intent);
     }
 
     public void onClickCerrarS(View view){
+
         Intent intent = new Intent(this, MainActivity.class );
+
+        String nombre = getIntent().getStringExtra("variablenombre");
         String apellido = getIntent().getStringExtra("variableapellido");
+        String base = getIntent().getStringExtra("variablebase");
         String exponente = getIntent().getStringExtra("variableexponente");
+        String numero = getIntent().getStringExtra("variablenumero");
 
-        String mandaNombre = editNombreS.getText().toString();
-        String mandaBase = editBaseS.getText().toString();
 
+        intent.putExtra("variablenombre", nombre);
         intent.putExtra("variableapellido", apellido);
-        intent.putExtra("variablenombre", mandaNombre);
-        intent.putExtra("variablebase",mandaBase);
+        intent.putExtra("variablebase",base);
         intent.putExtra("variableexponente",exponente);
+        intent.putExtra("variablenumero",numero);
+
 
         startActivity(intent);
     }

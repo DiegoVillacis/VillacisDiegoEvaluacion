@@ -9,11 +9,11 @@ import android.widget.EditText;
 
 public class TerceraPantalla extends AppCompatActivity {
 
-    private EditText nom;
+    private EditText editNombreT;
     private EditText editApellidoT;
-    private EditText bas;
-    private EditText exp;
-    private EditText num;
+    private EditText editBaseT;
+    private EditText editExponenteT;
+    private EditText editNumeroT;
 
 
     @Override
@@ -21,16 +21,11 @@ public class TerceraPantalla extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tercera_pantalla);
 
-        editApellidoT = findViewById(R.id.editTextTextApellidoT);
-        bas = findViewById(R.id.editTextTextBase);
-        exp = findViewById(R.id.editTextTextExponenteT);
-        num = findViewById(R.id.editTextTextNumeroT);
-
-        String nombre = getIntent().getStringExtra("nombre");
-        nom.setText(nombre);
-
-        String base = getIntent().getStringExtra("base");
-        bas.setText(base);
+        editNombreT = (EditText) findViewById(R.id.editTextTextNombreT);
+        editApellidoT = (EditText) findViewById(R.id.editTextTextApellidoT);
+        editBaseT = (EditText) findViewById(R.id.editTextTextBase);
+        editExponenteT = (EditText) findViewById(R.id.editTextTextExponenteT);
+        editNumeroT = (EditText) findViewById(R.id.editTextTextNumeroT);
 
 
     }
@@ -38,27 +33,24 @@ public class TerceraPantalla extends AppCompatActivity {
 
 
 
+    public void onClickCerrarT(View view){
 
 
+        Intent intent = new Intent(this, SegundaPantalla.class );
 
+        String nombreT = editNombreT.getText().toString();
+        String apellidoT = editApellidoT.getText().toString();
+        String baseT = editBaseT.getText().toString();
+        String exponenteT = editExponenteT.getText().toString();
+        String numeroT = editNumeroT.getText().toString();
 
+        intent.putExtra("variablenombre", nombreT);
+        intent.putExtra("variableapellido", apellidoT);
+        intent.putExtra("variablebase", baseT);
+        intent.putExtra("variableexponente", exponenteT);
+        intent.putExtra("variablenumero", numeroT);
 
-
-
-    public void Cerrar(View view){
-        Intent siguiente = new Intent(this, SegundaPantalla.class );
-        String nomb = nom.getText().toString();
-        String apell = editApellidoT.getText().toString();
-        String base = bas.getText().toString();
-        String exponen = exp.getText().toString();
-        String numer = num.getText().toString();
-        siguiente.putExtra("nombre", nomb);
-        siguiente.putExtra("apellido", apell);
-        siguiente.putExtra("base", base);
-        siguiente.putExtra("exponen", exponen);
-        siguiente.putExtra("numero", numer);
-
-        startActivity(siguiente);
+        startActivity(intent);
 
     }
 }

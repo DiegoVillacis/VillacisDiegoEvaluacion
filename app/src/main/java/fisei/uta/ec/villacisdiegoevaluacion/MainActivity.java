@@ -11,13 +11,13 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
 
 
-    private EditText n;
-    private EditText a;
-    private EditText b;
-    private EditText e;
-    private EditText f;
-    private EditText p;
-    private Button mos;
+    private EditText editNombreP;
+    private EditText editApellidoP;
+    private EditText editBaseP;
+    private EditText editExponenteP;
+    private EditText editFactorialP;
+    private EditText editPotenciaP;
+    private Button buttonMostrarP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,31 +25,35 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        n=(EditText)findViewById(R.id.editTextTextNombre);
-        a=(EditText)findViewById(R.id.editTextTextApellido);
-        b=(EditText)findViewById(R.id.editTextTextBase);
-        e=(EditText)findViewById(R.id.editTextTextExponente);
-        p=(EditText)findViewById(R.id.editTextTextPotencia);
-        p=(EditText)findViewById(R.id.editTextTextFactorial);
+        editNombreP = findViewById(R.id.editTextTextNombre);
+        editApellidoP = findViewById(R.id.editTextTextApellido);
+        editBaseP = findViewById(R.id.editTextTextBase);
+        editExponenteP = findViewById(R.id.editTextTextExponente);
+        editPotenciaP = findViewById(R.id.editTextTextPotencia);
+        editFactorialP = findViewById(R.id.editTextTextFactorial);
 
 
-        mos = (Button)findViewById(R.id.buttonMostrar);
+        buttonMostrarP = findViewById(R.id.buttonMostrar);
 
 
-        String nombr = getIntent().getStringExtra("nombre");
-        n.setText(nombr);
-        String ape = getIntent().getStringExtra("apellido");
-        a.setText(ape);
+        String nombr = getIntent().getStringExtra("variablenombre");
+        editNombreP.setText(nombr);
 
-        String bas = getIntent().getStringExtra("base");
-        b.setText(bas);
 
-        String exp = getIntent().getStringExtra("exponen");
-        e.setText(exp);
-        if (n.length()==0){
-            mos.setEnabled(false);
+        String ape = getIntent().getStringExtra("variableapellido");
+        editApellidoP.setText(ape);
+
+        String bas = getIntent().getStringExtra("variablebase");
+        editBaseP.setText(bas);
+
+        String exp = getIntent().getStringExtra("variableexponente");
+        editExponenteP.setText(exp);
+
+
+        if (editNombreP.length()==0){
+            buttonMostrarP.setEnabled(false);
         }else{
-            mos.setEnabled(true);
+            buttonMostrarP.setEnabled(true);
         }
     }
 
@@ -59,14 +63,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickMostrar(View view){
-        String pot = b.getText().toString();
-        String exp = e.getText().toString();
-        double pote = Double.parseDouble(pot);
-        double expo = Double.parseDouble(exp);
+        String pot = editBaseP.getText().toString();
+        String exp = editExponenteP.getText().toString();
 
-        double poten = Math.pow(pote,expo);
 
-        String res = String.valueOf(poten);
-        p.setText(res);
     }
 }
